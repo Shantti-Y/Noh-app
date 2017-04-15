@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+master_a:
+   name:             別　師匠
+   email:            master@gmail.com
+   password_digest:  <%= User.digest('password') %>
+   master_id:        <%= nil %>
+   role:             1
