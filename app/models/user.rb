@@ -1,21 +1,18 @@
 class User < ApplicationRecord
 
    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[\w\d\-.]+\.[A-z]+\z/
+   VALID_ROLE_KEYS   = ["master", "pupil"]
 
    validates :name,        presence: true
-                           # REVIEW lengthによる字数制限は必要か
    validates :email,       presence: true,
                            format: { with: VALID_EMAIL_REGEX }
-                           # REVIEW lengthによる字数制限は必要か
    validates :password,    presence: true,
-                           allow_nil: true
-                           # REVIEW lengthによる字数制限は必要か
+                           allow_nil: true,
+                           length: { minimum: 4 }
    has_secure_password
-   validate :is_pupil?     # master_id用のバリデーション
-   validates :role,        presence: true,
-                           inclusion: { in: [1, 2] }
-                           # REVIEW roleはenumとして定義した方が良いか
-                           #( enum role: { master: 1, pupil: 2} )
+   validate  :is_pupil?    # master_id用のバリデーション
+   enum role: { master: 1, pupil: 2 }
+   validates :role,        inclusion: { in: VALID_ROLE_KEYS }
 
    def User.digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -23,13 +20,17 @@ class User < ApplicationRecord
       BCrypt::Password.create(string, cost: cost)
    end
 
+
+   # TODO アソシエーションの要領で{ belongs_to: User.master, has_many: User.pupils }がしたい
+   #      ex. first_pupil.master.name や first_master.pupils.countなど
+
    private
       # 'role'が１(master)の場合、id入力を受け付けない
       def is_pupil?
-         if self.role == 1 && self.master_id != nil
-            errors.add(:master_id, "error")
-         elsif self.role == 2 && !(User.find_by(id: self.master_id))
-            errors.add(:master_id, "error")
+         if self.master? && self.master_id != nil
+            errors.add(:master_id, "can not be added because of its roke 'master'.")
+         elsif self.pupil? && !(User.find_by(id: self.master_id))
+            errors.add(:master_id, "could not find the relative master.")
          end
       end
 end

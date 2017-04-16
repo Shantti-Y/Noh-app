@@ -5,4 +5,4 @@ master_a:
    email:            master@gmail.com
    password_digest:  <%= User.digest('password') %>
    master_id:        <%= nil %>
-   role:             1
+   role:             master

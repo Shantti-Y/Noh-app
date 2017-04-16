@@ -31,8 +31,6 @@ class UserTest < ActiveSupport::TestCase
      assert_not @master.valid?
   end
 
-  # TODO nameのlengthバリデーション追加時にテストも併記
-
   test "email should be present" do
      @master.email = ""
      assert_not @master.valid?
@@ -51,8 +49,6 @@ class UserTest < ActiveSupport::TestCase
       end
    end
 
-   # TODO emailのlengthバリデーション追加時にテストも併記
-
    test "password should be present" do
       @master.password = ""
       @master.password_confirmation = ""
@@ -66,7 +62,12 @@ class UserTest < ActiveSupport::TestCase
       assert @master.valid?
    end
 
-   # TODO passwordのlengthバリデーション追加時にテストも併記
+   test "password should have more than 4 chars" do
+      @master.password = @master.password_confirmation = "p" * 4
+      assert @master.valid?
+      @master.password = @master.password_confirmation = "p" * 3
+      assert_not @master.valid?
+   end
 
    test "master should not have any master id" do
       @master.master_id = users(:master_a).id
@@ -83,9 +84,11 @@ class UserTest < ActiveSupport::TestCase
       assert_not @master.valid?
    end
 
+   # FIXME バリデーションをかけたいのに代入した時点で'ArgumentError'が発生してしまう。
+   #       正しい挙動なのだろうが、個人的に釈然としない
    test "role should be 1 or 2 as master or pupil respectively" do
-      roles = [0, 3, 4, 5]
-      roles.each do |key|
+      roles = { maste: 0, aster: 3, upil: 4, pupi: 5 }
+      roles.each do |key, value|
          @master.role = key
          assert_not @master.valid?
       end
