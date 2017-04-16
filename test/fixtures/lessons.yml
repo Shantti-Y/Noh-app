@@ -1,1 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+benkei:
+   title:         船弁慶
+   description:   義経が西国に逃れる途中、平家の怨霊を除霊する

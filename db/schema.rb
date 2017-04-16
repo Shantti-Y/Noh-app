@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416112000) do
+ActiveRecord::Schema.define(version: 20170416113433) do
+
+  create_table "lesson_logs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.integer  "points",      default: 0
+    t.datetime "lesson_date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "lessons", force: :cascade do |t|
     t.string   "title"

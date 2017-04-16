@@ -9,7 +9,6 @@ class LessonTest < ActiveSupport::TestCase
                          )
   end
 
-
   test "should be valid" do
      assert @lesson.valid?
   end

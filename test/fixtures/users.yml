@@ -6,3 +6,10 @@ master_a:
    password_digest:  <%= User.digest('password') %>
    master_id:        <%= nil %>
    role:             master
+
+pupil_a:
+   name:             別　弟子
+   email:            pupil@gmail.com
+   password_digest:  <%= User.digest('password') %>
+   master_id:        master_a.id
+   role:             pupil

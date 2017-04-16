@@ -1,4 +1,5 @@
 class Lesson < ApplicationRecord
+   has_many :lesson_logs, dependent: :destroy
 
    validates :title,       presence: true
    # REVIEW descriptionにバリデーションは必要か
