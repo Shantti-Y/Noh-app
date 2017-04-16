@@ -1,5 +1,6 @@
 class User < ApplicationRecord
    has_many :lesson_logs, dependent: :destroy
+   has_many :comments,    dependent: :destroy
 
    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[\w\d\-.]+\.[A-z]+\z/
    VALID_ROLE_KEYS   = ["master", "pupil"]
