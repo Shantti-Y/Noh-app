@@ -9,6 +9,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'components/header' %>
+    <div id="main">
+      <%= render 'components/user' %>
+      <div id="contents">
+         <%= yield %>
+      </div>
+    </div>
+    <%= render 'components/footer' %>
   </body>
 </html>

@@ -1,0 +1,161 @@
+// Place all the styles related to the Mockups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/************************************
+
+            Base Part
+
+*************************************/
+html {
+
+}
+
+body {
+   width: 100%;
+}
+
+* { font-size: 12px; }
+
+.section-header {
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+   background-color: #dedede;
+   border-bottom: 1px solid #787878;
+
+   h3 {
+      padding: 8px;
+      font-size: 13px;
+      font-weight: bold;
+   }
+}
+
+/************************************
+
+            Components
+
+*************************************/
+
+#header {
+   background-color: #009900;
+   overflow: hidden;
+
+   #title {
+      float: left;
+      padding: 12px;
+      font-size: 25px;
+      font-weight: bold;
+      color: #ffffff;
+   }
+
+   #header-menu {
+      float: left;
+      margin-left: 19px;
+
+      li {
+         display: block;
+         float: left;
+         font-size: 13px;
+         border-left: 1px solid #ffffff;
+         padding: 22px 14px;
+         color: #ffffff;
+         &:last-child { border-right: 1px solid #ffffff; }
+         &:hover {
+            cursor: pointer;
+            background-color: #ffffff;
+            color: #009900;
+            font-weight: bold;
+         }
+      }
+   }
+}
+
+#main {
+   overflow: hidden;
+   margin: 22px 12px;
+   min-height: 520px;
+
+   #user {
+      float: left;
+      width: 270px;
+
+      #user-profile {
+         border: 1px solid #787878;
+
+         border-radius: 4px;
+
+         #user-info {
+            overflow: hidden;
+            margin: 8px 14px 0 14px;
+
+            img {
+               float: left;
+               width: 52px;
+               height: 52px;
+               border-radius: 12px;
+               border: 1px solid #787878;
+            }
+            ul {
+               float: left;
+               margin-left: 13px;
+               li {
+                  margin-top: 3px;
+                  font-size: 12px;
+                  color: #787878;
+               }
+               #user-name {
+                  color: #000000;
+                  font-size: 15px;
+                  font-weight: bold;
+               }
+            }
+         }
+
+         #user-records {
+            margin: 14px;
+            overflow: hidden;
+
+            li {
+               float: left;
+               margin-right: 9px;
+               border: 1px solid #dedede;
+               border-radius: 5px;
+               width: 72px;
+               text-align: center;
+
+               &:last-child { margin-right: 0; }
+
+               div {
+                  border-radius: 4px;
+                  border-top: 5px solid #00e68a;
+                  border-bottom: 5px solid #00e68a;
+                  padding: 4px 0;
+
+                  h2 {
+                     font-size: 18px;
+                     font-weight: bold;
+                     margin-bottom: 2px;
+                  }
+                  p { font-size: 12px; }
+               }
+            }
+         }
+      }
+   }
+
+   #contents {
+      float: left;
+      margin-left: 23px;
+   }
+}
+
+#footer {
+   background-color: #009900;
+   padding: 14px;
+   text-align: center;
+   p {
+      font-size: 12px;
+      color: #ffffff;
+   }
+}
