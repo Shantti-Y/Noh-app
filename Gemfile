@@ -23,8 +23,9 @@ gem 'jbuilder',            '~> 2.5'
 gem 'bcrypt',              '~> 3.1.7'                    # 文字列(主にパスワード)のハッシュ化
 
 group :development, :test do
-  # デフォルトで配備
-  gem 'byebug', platform: :mri
+  # Add for debug (change from default gem: byebug)
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
