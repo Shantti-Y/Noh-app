@@ -38,7 +38,7 @@ end
 
 group :test do
    # 後から追加
-   gem 'rails-controller-testing',    '0.1.1'            # assings関数の追加
+   gem 'rails-controller-testing',    '0.1.1'            # assigns関数の追加
    gem 'minitest-reporters',          '~> 1.1.9'         # テスト結果をプログレスバーで表示
 end
 
