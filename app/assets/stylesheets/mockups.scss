@@ -72,6 +72,7 @@ body {
 }
 
 #dropdown-menu {
+   display: none;
    position: absolute;
    z-index: 1;
    top: 54px;
@@ -91,7 +92,6 @@ body {
       &:last-child { border-bottom: 1px solid #dedede; }
    }
 }
-
 
 @media(min-width: 670px){
    #header {
@@ -136,7 +136,7 @@ body {
       }
    }
 
-   #dropdown-menu { display: none; }
+   .dropdown { display: none; }
 
 }
 
