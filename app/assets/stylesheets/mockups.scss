@@ -299,3 +299,48 @@ body {
       }
    }
 }
+
+/************************************
+
+            Lesson
+
+*************************************/
+
+#lesson {
+   h1 {
+      font-size: 29px;
+      font-weight: bold;
+   }
+
+   img {
+      box-sizing: border-box;
+      width: 100%;
+      border: 2px solid #4d4d4d;
+      margin: 12px 0;
+   }
+
+   #description {
+      * {
+         font-size: 13px;
+         line-height: 19px;
+      }
+   }
+}
+
+@media(min-width: 670px){
+   #lesson {
+
+      img {
+         float: left;
+         max-width: 320px;
+         margin: 12px 20px 12px 0;
+      }
+
+      #description {
+         * {
+            font-size: 13px;
+            line-height: 19px;
+         }
+      }
+   }
+}
