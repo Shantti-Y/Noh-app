@@ -7,6 +7,8 @@ class MockupsController < ApplicationController
   def logs
      @user = User.where(role: "pupil").first
      @logs = @user.lesson_logs.where(lesson_id: params[:id])
+     @latest_log = @logs.first
+     @pastlogs = @logs.offset(1)
   end
 
   def lesson
