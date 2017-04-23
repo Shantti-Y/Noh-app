@@ -6,15 +6,20 @@ git_source(:github) do |repo_name|
 end
 
 # デフォルトで配備してあるgem群
-gem 'rails',               '~> 5.0.2'
+gem 'rails',                   '~> 5.0.2'
 gem 'sqlite3'
-gem 'puma',                '~> 3.0'
-gem 'sass-rails',          '~> 5.0'
-gem 'uglifier',            '>= 1.3.0'
-gem 'coffee-rails',        '~> 4.2'
+gem 'puma',                    '~> 3.0'
+gem 'sass-rails',              '~> 5.0'
+gem 'uglifier',                '>= 1.3.0'
+gem 'coffee-rails',            '~> 4.2'
 gem 'jquery-rails'
-gem 'turbolinks',          '~> 5'
-gem 'jbuilder',            '~> 2.5'
+gem 'turbolinks',              '~> 5'
+gem 'jbuilder',                '~> 2.5'
+gem 'seed-fu',                 '~> 2.3'                     # seed.rbをより扱いやすく(主にidの割り振りによる管理？)
+gem 'font-awesome-rails',      '~> 4.7'                     # font-awesomeを扱うヘルパー
+gem 'css3-progress-bar-rails', '~> 0.5.1'                   # プログレスバーを表示、扱うヘルパー
+gem 'carrierwave',             '~> 0.11.2'                  # 画像アップロード用ヘルパー
+gem 'simple_enum',             '~> 2.3'                     # enumを扱うヘルパー
 # gem 'redis', '~> 3.0'
 # gem 'therubyracer', platforms: :ruby
 # gem 'capistrano-rails', group: :development
