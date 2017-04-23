@@ -9,11 +9,13 @@
          <th></th>
       </tr>
 
+   <% @logs.each do |log| %>
       <tr>
-         <td>船弁慶</td>
-         <td>2017年12月15日</td>
-         <td>☆☆☆☆★ 45</td>
-         <td>詳細</td>
+         <td><%= link_to log.lesson.title, lessons_path(log.lesson) %></td>
+         <td><%= log.lesson_date.strftime("%Y年%m月%d日") %></td>
+         <td>☆☆☆☆★ <%= log.points %></td>
+         <td><%= link_to "詳細", logs_path(log.lesson) %></td>
       </tr>
+   <% end %>
    </table>
 </div>
