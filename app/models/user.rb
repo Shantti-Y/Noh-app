@@ -15,6 +15,10 @@ class User < ApplicationRecord
    validate  :is_pupil?    # master_id用のバリデーション
    enum role: { master: 1, pupil: 2 }
    validates :role,        inclusion: { in: VALID_ROLE_KEYS }
+   validates :style,       presence: true
+   # REVIEW styleは"流儀カテゴリ"にあたります。
+   #   流派は役職ごとに複数存在し、それぞれが独立しています。。
+   #   業界の特性上、能楽師は一度属した流派から別の流派に動くことはないそうです...
 
    def User.digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

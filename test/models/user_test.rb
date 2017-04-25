@@ -9,7 +9,8 @@ class UserTest < ActiveSupport::TestCase
                         password:               "password",
                         password_confirmation:  "password",
                         master_id:              nil,
-                        role:                   1
+                        role:                   1,
+                        style:                  "金剛流"
                        )
      @pupil  = User.new(
                         name:                   "弟子",
@@ -17,7 +18,8 @@ class UserTest < ActiveSupport::TestCase
                         password:               "password",
                         password_confirmation:  "password",
                         master_id:              users(:master_a).id,
-                        role:                   2
+                        role:                   2,
+                        style:                  "金剛流"
                        )
   end
 
@@ -91,5 +93,10 @@ class UserTest < ActiveSupport::TestCase
             @master.role = key
          end
       end
+   end
+
+   test "style should be present" do
+      @master.style = ""
+      assert_not @master.valid?
    end
 end
