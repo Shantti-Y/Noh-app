@@ -84,13 +84,12 @@ class UserTest < ActiveSupport::TestCase
       assert_not @master.valid?
    end
 
-   # FIXME バリデーションをかけたいのに代入した時点で'ArgumentError'が発生してしまう。
-   #       正しい挙動なのだろうが、個人的に釈然としない
    test "role should be 1 or 2 as master or pupil respectively" do
       roles = { maste: 0, aster: 3, upil: 4, pupi: 5 }
-      roles.each do |key, value|
-         @master.role = key
-         assert_not @master.valid?
+      assert_raises ArgumentError do
+         roles.each do |key|
+            @master.role = key
+         end
       end
    end
 end
