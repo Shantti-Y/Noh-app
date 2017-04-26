@@ -23,7 +23,14 @@ class UserTest < ActiveSupport::TestCase
                        )
   end
 
+  def save_users
+     @master.save
+     @pupil.master_id = @master.id
+     @pupil.save
+  end
+
   test "should be valid" do
+     save_users
      assert @master.valid?
      assert @pupil.valid?
   end
@@ -77,7 +84,7 @@ class UserTest < ActiveSupport::TestCase
    end
 
    test "pupil should have a relative master id" do
-      @pupil.master_id = nil
+      @pupil.master_id = users(:master_a).id
       assert_not @pupil.valid?
    end
 
@@ -100,18 +107,20 @@ class UserTest < ActiveSupport::TestCase
       assert_not @master.valid?
    end
 
+   test "style of pupil should be equal to master" do
+      save_users
+      @pupil.style = "金春流"
+      assert_not @pupil.valid?
+   end
+
    test "master is able to have an association with relative pupils" do
-      @master.save
-      @pupil.master_id = @master.id
-      @pupil.save
+      save_users
       assert_equal 1, @master.pupils.count
       assert_equal @pupil.name, @master.pupils.first.name
    end
 
    test "pupil is able to belong to relative master" do
-      @master.save
-      @pupil.master_id = @master.id
-      @pupil.save
+      save_users
       assert_equal @master.name, @pupil.master.name
    end
 end

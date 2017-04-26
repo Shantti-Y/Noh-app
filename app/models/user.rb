@@ -16,6 +16,7 @@ class User < ApplicationRecord
    enum role: { master: 1, pupil: 2 }
    validates :role,        inclusion: { in: VALID_ROLE_KEYS }
    validates :style,       presence: true
+   validate  :style_equal_to_master    # style用のバリデーション
    # REVIEW styleは"流儀カテゴリ"にあたります。
    #   流派は役職ごとに複数存在し、それぞれが独立しています。。
    # => ex. 能における役職がシテ方：　観世流、宝生流、金春流、金剛流、喜多流
@@ -58,6 +59,13 @@ class User < ApplicationRecord
             errors.add(:master_id, "could not find the relative master.")
          elsif !self.is_pupil? && self.master_id != nil
             errors.add(:master_id, "can not be added because of its role 'master'.")
+         end
+      end
+
+      # 弟子の流儀は師匠と合致していなければならない
+      def style_equal_to_master
+         if self.is_pupil? && self.style != self.master.style
+            errors.add(:style, "can not be set a different style from master's.")
          end
       end
 end
