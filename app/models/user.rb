@@ -18,6 +18,8 @@ class User < ApplicationRecord
    validates :style,       presence: true
    # REVIEW styleは"流儀カテゴリ"にあたります。
    #   流派は役職ごとに複数存在し、それぞれが独立しています。。
+   # => ex. 能における役職がシテ方：　観世流、宝生流、金春流、金剛流、喜多流
+   #                    　 ワキ方：　高安流、福王流、宝生流...etc
    #   業界の特性上、能楽師は一度属した流派から別の流派に動くことはないそうです...
 
    def User.digest(string)
