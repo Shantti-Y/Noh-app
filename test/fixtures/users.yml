@@ -6,6 +6,7 @@ master_a:
    password_digest:  <%= User.digest('password') %>
    master_id:        <%= nil %>
    role:             master
+   style:            観世流
 
 pupil_a:
    name:             別　弟子
@@ -13,3 +14,4 @@ pupil_a:
    password_digest:  <%= User.digest('password') %>
    master_id:        master_a.id
    role:             pupil
+   style:            観世流

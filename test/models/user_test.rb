@@ -99,4 +99,19 @@ class UserTest < ActiveSupport::TestCase
       @master.style = ""
       assert_not @master.valid?
    end
+
+   test "master is able to have an association with relative pupils" do
+      @master.save
+      @pupil.master_id = @master.id
+      @pupil.save
+      assert_equal 1, @master.pupils.count
+      assert_equal @pupil.name, @master.pupils.first.name
+   end
+
+   test "pupil is able to belong to relative master" do
+      @master.save
+      @pupil.master_id = @master.id
+      @pupil.save
+      assert_equal @master.name, @pupil.master.name
+   end
 end

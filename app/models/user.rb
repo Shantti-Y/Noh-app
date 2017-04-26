@@ -37,8 +37,18 @@ class User < ApplicationRecord
    end
 
 
-   # TODO アソシエーションの要領で{ belongs_to: User.master, has_many: User.pupils }がしたい
-   #      ex. first_pupil.master.name や first_master.pupils.countなど
+   # masterとpupilsのアソシエーション(master : pupils = 1 : n)
+   def pupils
+      if !self.is_pupil?
+         return User.where(master_id: self.id)
+      end
+   end
+
+   def master
+      if self.is_pupil?
+         return User.find(self.master_id)
+      end
+   end
 
    private
 
