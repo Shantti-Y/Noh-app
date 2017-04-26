@@ -1,0 +1,16 @@
+<div id="lesson">
+   <h1>演目：<%= @lesson.title %></h1>
+
+   <%= image_tag 'lesson_sam.jpg', id: 'thumbnail' %>
+   <!-- TODO: 演目ごとにサムネイルが必要(モデルに追加する予定：可能であれば) -->
+
+   <div id="description">
+      <p><%= @lesson.description %></p>
+   </div>
+
+   <!-- TODO: 演目ごとに稽古の様子を不特定多数が投稿できたらいいかもしれません
+               コメントや写真(山クエみたいに)、または
+               Lesson_logフィールド中の進捗データを引き出してトレンドという形で表示
+               (ex. お知らせ：とある弟子が進捗MAXに到達しました！) -->
+
+</div>

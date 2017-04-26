@@ -1,0 +1,59 @@
+<div id="lesson-logs">
+   <h1><%= @latest_log.lesson.title %>の稽古記録</h1>
+
+   <div id="latest-lesson-log">
+      <div id="latest-info">
+         <div id="latest-left">
+            <h2>最新の記録</h2>
+            <p id="latest-date">稽古日付：<span><%= @latest_log.lesson_date.strftime("%Y年%m月%d日") %></span></p>
+            <p id="latest-points">進捗度：<span>★★★★★<%= @latest_log.points %></span></p>
+         </div>
+
+         <%= image_tag "lesson_sam.jpg", id: 'latest-right' %>
+
+      </div>
+      <div id="latest-comments">
+         <h3>師匠からのコメント</h3>
+         <% if @latest_log.comments.count > 0 %>
+            <ul id="comments-list">
+               <% @latest_log.comments.each do |comment| %>
+                  <li>
+                     <div class="comment-info">
+                        <%= image_tag 'master.jpg' %>
+                        <div>
+                           <p><%= comment.user.name %></p>
+                           <p><%= comment.updated_at.strftime("%Y年%m月%d日") %></p>
+                        </div>
+                     </div>
+                     <p class="content">
+                        <%= comment.comment %>
+                     </p>
+                  </li>
+               <% end %>
+            </ul>
+         <% else %>
+            <p id="no-comment">コメントはまだありません。</p>
+         <% end %>
+      </div>
+
+   </div>
+   <div id="past-lesson-logs">
+      <h2>今までの稽古記録</h2>
+      <table>
+         <tr>
+            <th>最終稽古日付</th>
+            <th>進捗</th>
+            <th>コメント</th>
+         </tr>
+
+      <% @pastlogs.each do |log| %>
+         <tr>
+            <td><%= log.lesson_date.strftime("%Y年%m月%d日") %></td>
+            <td>☆☆☆☆★ <%= log.points %></td>
+            <td><%= log.comments.count %></td>
+         </tr>
+      <% end %>
+      </table>
+   </div>
+
+</div>

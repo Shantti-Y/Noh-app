@@ -1,0 +1,518 @@
+// Place all the styles related to the Mockups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/************************************
+
+            Base Part
+
+*************************************/
+html {
+
+}
+
+body {
+   width: 100%;
+   margin: 0 auto;
+}
+
+* { font-size: 12px; }
+
+.section-header {
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+   background-color: #dedede;
+   border-bottom: 1px solid #787878;
+
+   h3 {
+      padding: 8px;
+      font-size: 13px;
+      font-weight: bold;
+   }
+}
+
+@media(min-width: 670px){
+   body {
+      width: 900px;
+   }
+}
+@media(min-width: 900px){
+   body {
+      width: 100%;
+   }
+}
+
+/************************************
+
+            Components
+
+*************************************/
+
+#header {
+   background-color: #009900;
+   overflow: hidden;
+
+   #title {
+      float: left;
+      margin-top: 5px;
+      padding: 12px;
+      font-size: 25px;
+      font-weight: bold;
+      color: #ffffff;
+   }
+
+   #dropdown-btn {
+      float: right;
+      margin: 8px 8px 0 0;
+      padding: 5px;
+      font-size: 23px;
+      font-weight: bold;
+      border: 1px solid #3e3e3e;
+      border-radius: 5px;
+      color: #ffffff;
+      &:hover {
+         color: #000000;
+         background-color: #ffffff;
+         cursor: pointer;
+      }
+   }
+
+   #header-menu {
+      display: none;
+   }
+}
+
+#dropdown-menu {
+   display: none;
+   position: absolute;
+   z-index: 1;
+   top: 54px;
+   width: 100%;
+
+   li {
+      display: block;
+      padding: 9px 11px;
+      background-color: #009900;
+      color: #ffffff;
+
+      &:hover {
+         color: #000000;
+         background-color: #ffffff;
+         cursor: pointer;
+      }
+      &:last-child { border-bottom: 1px solid #dedede; }
+   }
+}
+
+@media(min-width: 670px){
+   #header {
+
+      #dropdown-btn { display: none; }
+
+
+      #header-menu {
+         display: block;
+         float: left;
+         margin-left: 19px;
+
+         li {
+            display: block;
+            float: left;
+            font-size: 13px;
+            border-left: 1px solid #ffffff;
+            padding: 22px 14px;
+            color: #ffffff;
+
+            img {
+               width: 32px;
+               height: 32px;
+               border-radius: 12px;
+               position: absolute;
+               top: 14px;
+               left: 12px;
+            }
+
+            &:last-child {
+               border-right: 1px solid #ffffff;
+               position: relative;
+               padding-left: 54px;
+            }
+            &:hover {
+               cursor: pointer;
+               background-color: #ffffff;
+               color: #009900;
+               font-weight: bold;
+            }
+         }
+      }
+   }
+
+   .dropdown { display: none; }
+
+}
+
+#main {
+   margin: 22px 12px;
+   min-height: 520px;
+
+   #user {
+      width: 100%;
+
+      #user-profile {
+         border: 1px solid #787878;
+
+         border-radius: 4px;
+
+         #user-info {
+            overflow: hidden;
+            margin: 8px 14px 0 14px;
+
+            img {
+               float: left;
+               width: 52px;
+               height: 52px;
+               border-radius: 12px;
+               border: 1px solid #787878;
+            }
+            ul {
+               float: left;
+               margin-left: 13px;
+               li {
+                  margin-top: 3px;
+                  font-size: 12px;
+                  color: #787878;
+               }
+               #user-name {
+                  color: #000000;
+                  font-size: 15px;
+                  font-weight: bold;
+               }
+            }
+         }
+
+         #user-records {
+            margin: 14px;
+            overflow: hidden;
+
+            li {
+               float: left;
+               margin-right: 9px;
+               border: 1px solid #dedede;
+               border-radius: 5px;
+               width: 58px;
+               text-align: center;
+
+               &:last-child { margin-right: 0; }
+
+               div {
+                  border-radius: 4px;
+                  border-top: 5px solid #00e68a;
+                  border-bottom: 5px solid #00e68a;
+                  padding: 4px 0;
+
+                  h2 {
+                     font-size: 18px;
+                     font-weight: bold;
+                     margin-bottom: 2px;
+                  }
+                  p { font-size: 12px; }
+               }
+            }
+         }
+      }
+   }
+
+   #contents {
+      width: 100%;
+      margin: 22px 0;
+   }
+}
+
+@media(min-width: 450px){
+   #main {
+      #user {
+            #user-profile {
+               overflow: hidden;
+               #user-info { float: left; }
+               #user-records {
+                  float: left;
+                  li { width: 66px; }
+               }
+            }
+
+         }
+      }
+   }
+
+
+@media(min-width: 670px){
+   #main {
+      width: 900px;
+      margin: 22px auto;
+      overflow: hidden;
+      #user {
+         float: left;
+         width: 270px;
+         #user-profile {
+            #user-records {
+               li { width: 72px; }
+            }
+         }
+      }
+
+      #contents {
+         float: right;
+         width: calc(100% - 295px);
+      }
+   }
+}
+
+#footer {
+   background-color: #009900;
+   padding: 14px;
+   text-align: center;
+   p {
+      font-size: 12px;
+      color: #ffffff;
+   }
+}
+
+/************************************
+
+            Pupil
+
+*************************************/
+
+#pupil {
+   h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 12px;
+   }
+
+   table {
+      border: 1px solid #909090;
+      border-radius: 7px;
+
+      tr {
+         border: 1px solid #909090;
+         * { font-size: 13px; }
+
+         th {
+            padding: 5px 4px;
+            font-weight: bold;
+            background-color: #99ff99;
+
+         }
+
+         td {
+            padding: 3px 4px;
+            border: 1px solid #909090;
+         }
+      }
+   }
+}
+
+/************************************
+
+            Lesson
+
+*************************************/
+
+#lesson {
+   h1 {
+      font-size: 29px;
+      font-weight: bold;
+   }
+
+   img {
+      box-sizing: border-box;
+      width: 100%;
+      border: 2px solid #4d4d4d;
+      margin: 12px 0;
+   }
+
+   #description {
+      * {
+         font-size: 13px;
+         line-height: 19px;
+      }
+   }
+}
+
+@media(min-width: 670px){
+   #lesson {
+
+      img {
+         float: left;
+         max-width: 320px;
+         margin: 12px 20px 12px 0;
+      }
+
+      #description {
+         * {
+            font-size: 13px;
+            line-height: 19px;
+         }
+      }
+   }
+}
+
+/************************************
+
+            LessonLog
+
+*************************************/
+#lesson-logs {
+   h1 {
+      font-size: 23px;
+      font-weight: bold;
+      padding-bottom: 6px;
+      border-bottom: 3px solid #009900;
+      margin-bottom: 6px;
+   }
+
+   #latest-lesson-log {
+      border-radius: 5px;
+      margin-bottom: 16px;
+      background-color: #efefef;
+      padding-bottom: 9px;
+
+      #latest-info {
+         #latest-left {
+            padding: 9px;
+
+            h2 {
+               font-size: 19px;
+               padding-bottom: 3px;
+               border-bottom: 2px solid #404040;
+               margin-bottom: 20px;
+            }
+            p {
+               font-size: 13px;
+               color: #909090;
+               span {
+                  font-size: 15px;
+                  color: #000000;
+               }
+            }
+
+         }
+
+         #latest-right {
+            box-sizing: border-box;
+            border: 2px solid #4d4d4d;
+            width: 100%;
+         }
+      }
+
+      #latest-comments {
+         background-color: #ffffff;
+         margin-top: 24px;
+         border: 2px solid #4d4d4d;
+         border-top-left-radius: 4px;
+         border-top-right-radius: 4px;
+
+         h3 {
+            padding: 5px;
+            background-color: #4d4d4d;
+            color: #ffffff;
+         }
+
+         #comments-list {
+            height: 190px;
+            overflow: scroll;
+
+               li {
+                  padding: 9px;
+                  border-bottom: 1px solid #4d4d4d;
+                  .comment-info {
+                     overflow: hidden;
+                     img {
+                        float: left;
+                        width: 42px;
+                        height: 42px;
+                        border-radius: 19px;
+                        border: 2px solid #4d4d4d;
+                     }
+                     div {
+                        float: right;
+                        width: calc(100% - 52px);
+                     }
+                  }
+                  .content {
+                     margin-top: 6px;
+                     font-size: 13px;
+                     color: #000000;
+                  }
+               }
+         }
+
+         #no-comment {
+            margin: 6px;
+            font-size: 13px;
+            color: #909090;
+         }
+      }
+   }
+
+   #past-lesson-logs {
+
+      h2 {
+         font-size: 19px;
+         padding-bottom: 3px;
+         border-bottom: 2px solid #404040;
+         margin-bottom: 20px;
+      }
+
+      table {
+         border: 1px solid #909090;
+         border-radius: 7px;
+
+         tr {
+            border: 1px solid #909090;
+            * { font-size: 13px; }
+
+            th {
+               padding: 5px 4px;
+               font-weight: bold;
+               background-color: #99ff99;
+
+            }
+
+            td {
+               padding: 3px 4px;
+               border: 1px solid #909090;
+            }
+         }
+      }
+   }
+}
+
+@media(min-width: 450px) {
+   #lesson-logs {
+
+      #latest-lesson-log {
+
+         #latest-info {
+            overflow: hidden;
+            #latest-left {
+               float: left;
+               width: 180px;
+            }
+
+            #latest-right {
+               float: right;
+               margin: 22px 9px 0 0;
+               width: calc(100% - 220px);
+            }
+         }
+      }
+
+      #latest-comments {
+         margin: 0 10px;
+      }
+   }
+
+}

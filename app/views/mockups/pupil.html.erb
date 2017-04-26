@@ -1,0 +1,21 @@
+<div id="pupil">
+   <h1>進捗管理</h1>
+
+   <table>
+      <tr>
+         <th>演目</th>
+         <th>最終稽古日付</th>
+         <th>進捗</th>
+         <th></th>
+      </tr>
+
+   <% @logs.each do |log| %>
+      <tr>
+         <td><%= link_to log.lesson.title, lessons_path(log.lesson) %></td>
+         <td><%= log.lesson_date.strftime("%Y年%m月%d日") %></td>
+         <td>☆☆☆☆★ <%= log.points %></td>
+         <td><%= link_to "詳細", logs_path(log.lesson) %></td>
+      </tr>
+   <% end %>
+   </table>
+</div>
