@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 1
+  event_date: 2017-04-30 10:10:44
+  start_time: 2017-04-30 10:10:44
+  title: MyString
+  lesson_id: 1
+  location: MyString
+
+two:
+  event_id: 1
+  event_date: 2017-04-30 10:10:44
+  start_time: 2017-04-30 10:10:44
+  title: MyString
+  lesson_id: 1
+  location: MyString
