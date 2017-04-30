@@ -1,17 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+upcoming_one:
   event_id: 1
-  event_date: 2017-04-30 10:10:44
-  start_time: 2017-04-30 10:10:44
-  title: MyString
-  lesson_id: 1
-  location: MyString
+  event_date: <%= Date.today + 1.week %>
+  title: これから来る能公演
+  lesson: benkei
+  location:
+     京都観世会館: "http://www.kyoto-kanze.jp/"
 
-two:
-  event_id: 1
-  event_date: 2017-04-30 10:10:44
-  start_time: 2017-04-30 10:10:44
-  title: MyString
-  lesson_id: 1
-  location: MyString
+upcoming_two:
+  event_id: 2
+  event_date: <%= Date.today + 1.week %>
+  title: これから来る能公演
+  lesson: tuchigumo
+  location:
+     京都観世会館: "http://www.kyoto-kanze.jp/"
+
+upcoming_three:
+  event_id: 3
+  event_date: <%= Date.today + 1.week %>
+  title: これから来る能公演
+  lesson: sagi
+  location:
+     京都観世会館: "http://www.kyoto-kanze.jp/"
